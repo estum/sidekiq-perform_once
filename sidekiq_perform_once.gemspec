@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = "sidekiq-perform_once"
-  s.version     = "0.0.3"
+  s.version     = "0.0.4"
   s.authors     = ["Tõnis Simo"]
   s.email       = ["anton.estum@gmail.com"]
   s.homepage    = "https://github.com/estum/sidekiq-perform_once"
