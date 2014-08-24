@@ -1,8 +1,6 @@
-# Sidekiq::PerformOnce
+# Description
 
-Perform [sidekiq](https://github.com/mperham/sidekiq) jobs with the same arguments only once.
-
-Adds perform methods for sidekiq workers: `perform_once`, `perform_once_in` and `perform_once_at` (use them like `perform_async`, `perform_in` and `perform_at`).
+Performing [sidekiq](https://github.com/mperham/sidekiq) workers with the same arguments only once. It is useful when you don't want to enqueue several jobs with the same arguments. But you should be careful with frequent jobs!
 
 ## Installation
 
@@ -12,20 +10,24 @@ Add this line to your application's Gemfile:
 gem 'sidekiq-perform_once'
 ```
 
-And then execute:
+## Usage
 
-```
-$ bundle
-```
-
-Include `Sidekiq::PerformOnce` into your sidekiq workers:
+Include `Sidekiq::PerformOnce` into your workers:
 
 ```ruby
 class CustomWorker
   include Sidekiq::Worker, Sidekiq::PerformOnce
-  
   #...
 end
+```
+
+For immediatly performing use `perform_once(*args)` method (alias `perform_once_now`).  
+For scheduled performing use `perform_once_in(delay, *args)` (alias `perform_once_at(time, *args)`).
+
+For example, we have `CategoryIconWorker` which updates category icon from its last item every time it added, but we want to update it only once per 3 minutes. So we can add `after_commit on: :create` callback with the following code:
+
+```ruby
+CategoryIconWorker.perform_once_in(3.minutes, category_id)
 ```
 
 ## Contributing
