@@ -9,7 +9,7 @@ Adds perform methods for sidekiq workers: `perform_once`, `perform_once_in` and 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'sidekiq_perform_once'
+gem 'sidekiq-perform_once'
 ```
 
 And then execute:

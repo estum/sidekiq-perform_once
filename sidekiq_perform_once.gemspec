@@ -2,11 +2,11 @@ $:.push File.expand_path("../lib", __FILE__)
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "sidekiq_perform_once"
-  s.version     = "0.0.2"
+  s.name        = "sidekiq-perform_once"
+  s.version     = "0.0.3"
   s.authors     = ["Tõnis Simo"]
   s.email       = ["anton.estum@gmail.com"]
-  s.homepage    = "https://github.com/estum/sidekiq_perform_once"
+  s.homepage    = "https://github.com/estum/sidekiq-perform_once"
   s.summary     = "Sidekiq::PerformOnce"
   s.description = "Perform sidekiq jobs with the same arguments only once."
   
